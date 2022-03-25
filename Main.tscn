@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://center.png" type="Texture" id=2]
+[ext_resource path="res://corner.png" type="Texture" id=3]
+[ext_resource path="res://edge.png" type="Texture" id=4]
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -10,542 +13,667 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A1" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.596078, 0.596078, 0.596078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="A1" type="TextureRect" parent="."]
 margin_left = 200.0
 margin_top = 8.0
-margin_right = 260.0
-margin_bottom = 68.0
+margin_right = 263.0
+margin_bottom = 71.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A2" type="ColorRect" parent="."]
+[node name="A2" type="TextureRect" parent="."]
 margin_left = 264.0
 margin_top = 8.0
-margin_right = 324.0
-margin_bottom = 68.0
+margin_right = 327.0
+margin_bottom = 71.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 4 )
+stretch_mode = 1
 
-[node name="A3" type="ColorRect" parent="."]
+[node name="A3" type="TextureRect" parent="."]
 margin_left = 328.0
 margin_top = 8.0
-margin_right = 388.0
-margin_bottom = 68.0
+margin_right = 391.0
+margin_bottom = 71.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 3 )
+stretch_mode = 1
 
-[node name="A4" type="ColorRect" parent="."]
+[node name="A4" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 72.0
-margin_right = 260.0
-margin_bottom = 132.0
+margin_top = 135.0
+margin_right = 263.0
+margin_bottom = 198.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+rect_rotation = -90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 
-[node name="A5" type="ColorRect" parent="."]
+[node name="A5" type="TextureRect" parent="."]
 margin_left = 264.0
 margin_top = 72.0
-margin_right = 324.0
-margin_bottom = 132.0
+margin_right = 327.0
+margin_bottom = 135.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 2 )
+stretch_mode = 1
 
-[node name="A6" type="ColorRect" parent="."]
-margin_left = 328.0
+[node name="A6" type="TextureRect" parent="."]
+margin_left = 391.0
 margin_top = 72.0
-margin_right = 388.0
-margin_bottom = 132.0
+margin_right = 454.0
+margin_bottom = 135.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+rect_rotation = 90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 
-[node name="A7" type="ColorRect" parent="."]
+[node name="A7" type="TextureRect" parent="."]
 margin_left = 200.0
 margin_top = 136.0
-margin_right = 260.0
-margin_bottom = 196.0
+margin_right = 263.0
+margin_bottom = 199.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
+flip_v = true
 
-[node name="A8" type="ColorRect" parent="."]
+[node name="A8" type="TextureRect" parent="."]
 margin_left = 264.0
 margin_top = 136.0
-margin_right = 324.0
-margin_bottom = 196.0
+margin_right = 327.0
+margin_bottom = 199.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 4 )
+stretch_mode = 1
+flip_v = true
 
-[node name="A9" type="ColorRect" parent="."]
+[node name="A9" type="TextureRect" parent="."]
 margin_left = 328.0
 margin_top = 136.0
-margin_right = 388.0
-margin_bottom = 196.0
+margin_right = 391.0
+margin_bottom = 199.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_v = true
 
-[node name="A10" type="ColorRect" parent="."]
+[node name="A10" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 200.0
-margin_right = 260.0
-margin_bottom = 260.0
+margin_top = 202.0
+margin_right = 263.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A11" type="ColorRect" parent="."]
+[node name="A11" type="TextureRect" parent="."]
 margin_left = 264.0
-margin_top = 200.0
-margin_right = 324.0
-margin_bottom = 260.0
+margin_top = 202.0
+margin_right = 327.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A12" type="ColorRect" parent="."]
+[node name="A12" type="TextureRect" parent="."]
 margin_left = 328.0
-margin_top = 200.0
-margin_right = 388.0
-margin_bottom = 260.0
+margin_top = 202.0
+margin_right = 391.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A13" type="ColorRect" parent="."]
+[node name="A13" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 264.0
-margin_right = 260.0
-margin_bottom = 324.0
+margin_top = 329.0
+margin_right = 263.0
+margin_bottom = 392.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = -90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A14" type="ColorRect" parent="."]
+[node name="A14" type="TextureRect" parent="."]
 margin_left = 264.0
-margin_top = 264.0
-margin_right = 324.0
-margin_bottom = 324.0
+margin_top = 266.0
+margin_right = 327.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A15" type="ColorRect" parent="."]
-margin_left = 328.0
-margin_top = 264.0
-margin_right = 388.0
-margin_bottom = 324.0
+[node name="A15" type="TextureRect" parent="."]
+margin_left = 391.0
+margin_top = 266.0
+margin_right = 454.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = 90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A16" type="ColorRect" parent="."]
+[node name="A16" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 328.0
-margin_right = 260.0
-margin_bottom = 388.0
+margin_top = 330.0
+margin_right = 263.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A17" type="ColorRect" parent="."]
+[node name="A17" type="TextureRect" parent="."]
 margin_left = 264.0
-margin_top = 328.0
-margin_right = 324.0
-margin_bottom = 388.0
+margin_top = 330.0
+margin_right = 327.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A18" type="ColorRect" parent="."]
+[node name="A18" type="TextureRect" parent="."]
 margin_left = 328.0
-margin_top = 328.0
-margin_right = 388.0
-margin_bottom = 388.0
+margin_top = 330.0
+margin_right = 391.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A19" type="ColorRect" parent="."]
-margin_left = 8.0
-margin_top = 200.0
-margin_right = 68.0
-margin_bottom = 260.0
+[node name="A19" type="TextureRect" parent="."]
+margin_left = 6.0
+margin_top = 202.0
+margin_right = 69.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A20" type="ColorRect" parent="."]
-margin_left = 72.0
-margin_top = 200.0
-margin_right = 132.0
-margin_bottom = 260.0
+[node name="A20" type="TextureRect" parent="."]
+margin_left = 70.0
+margin_top = 202.0
+margin_right = 133.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A21" type="ColorRect" parent="."]
-margin_left = 136.0
-margin_top = 200.0
-margin_right = 196.0
-margin_bottom = 260.0
+[node name="A21" type="TextureRect" parent="."]
+margin_left = 134.0
+margin_top = 202.0
+margin_right = 197.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A22" type="ColorRect" parent="."]
-margin_left = 8.0
-margin_top = 264.0
-margin_right = 68.0
-margin_bottom = 324.0
+[node name="A22" type="TextureRect" parent="."]
+margin_left = 6.0
+margin_top = 329.0
+margin_right = 69.0
+margin_bottom = 392.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = -90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A23" type="ColorRect" parent="."]
-margin_left = 72.0
-margin_top = 264.0
-margin_right = 132.0
-margin_bottom = 324.0
+[node name="A23" type="TextureRect" parent="."]
+margin_left = 70.0
+margin_top = 266.0
+margin_right = 133.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A24" type="ColorRect" parent="."]
-margin_left = 136.0
-margin_top = 264.0
-margin_right = 196.0
-margin_bottom = 324.0
+[node name="A24" type="TextureRect" parent="."]
+margin_left = 197.0
+margin_top = 266.0
+margin_right = 260.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = 90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A25" type="ColorRect" parent="."]
-margin_left = 8.0
-margin_top = 328.0
-margin_right = 68.0
-margin_bottom = 388.0
+[node name="A25" type="TextureRect" parent="."]
+margin_left = 6.0
+margin_top = 330.0
+margin_right = 69.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A26" type="ColorRect" parent="."]
-margin_left = 72.0
-margin_top = 328.0
-margin_right = 132.0
-margin_bottom = 388.0
+[node name="A26" type="TextureRect" parent="."]
+margin_left = 70.0
+margin_top = 330.0
+margin_right = 133.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A27" type="ColorRect" parent="."]
-margin_left = 136.0
-margin_top = 328.0
-margin_right = 196.0
-margin_bottom = 388.0
+[node name="A27" type="TextureRect" parent="."]
+margin_left = 134.0
+margin_top = 330.0
+margin_right = 197.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A28" type="ColorRect" parent="."]
+[node name="A28" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 392.0
-margin_right = 260.0
-margin_bottom = 452.0
+margin_top = 396.0
+margin_right = 263.0
+margin_bottom = 459.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A29" type="ColorRect" parent="."]
+[node name="A29" type="TextureRect" parent="."]
 margin_left = 264.0
-margin_top = 392.0
-margin_right = 324.0
-margin_bottom = 452.0
+margin_top = 396.0
+margin_right = 327.0
+margin_bottom = 459.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A30" type="ColorRect" parent="."]
+[node name="A30" type="TextureRect" parent="."]
 margin_left = 328.0
-margin_top = 392.0
-margin_right = 388.0
-margin_bottom = 452.0
+margin_top = 396.0
+margin_right = 391.0
+margin_bottom = 459.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A31" type="ColorRect" parent="."]
+[node name="A31" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 456.0
-margin_right = 260.0
-margin_bottom = 516.0
+margin_top = 523.0
+margin_right = 263.0
+margin_bottom = 586.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = -90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A32" type="ColorRect" parent="."]
+[node name="A32" type="TextureRect" parent="."]
 margin_left = 264.0
-margin_top = 456.0
-margin_right = 324.0
-margin_bottom = 516.0
+margin_top = 460.0
+margin_right = 327.0
+margin_bottom = 523.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A33" type="ColorRect" parent="."]
-margin_left = 328.0
-margin_top = 456.0
-margin_right = 388.0
-margin_bottom = 516.0
+[node name="A33" type="TextureRect" parent="."]
+margin_left = 391.0
+margin_top = 460.0
+margin_right = 454.0
+margin_bottom = 523.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = 90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A34" type="ColorRect" parent="."]
+[node name="A34" type="TextureRect" parent="."]
 margin_left = 200.0
-margin_top = 520.0
-margin_right = 260.0
-margin_bottom = 580.0
+margin_top = 525.0
+margin_right = 263.0
+margin_bottom = 588.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
+flip_v = true
 
-[node name="A35" type="ColorRect" parent="."]
+[node name="A35" type="TextureRect" parent="."]
 margin_left = 264.0
-margin_top = 520.0
-margin_right = 324.0
-margin_bottom = 580.0
+margin_top = 525.0
+margin_right = 327.0
+margin_bottom = 588.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+texture = ExtResource( 4 )
+stretch_mode = 1
+flip_v = true
 
-[node name="A36" type="ColorRect" parent="."]
+[node name="A36" type="TextureRect" parent="."]
 margin_left = 328.0
-margin_top = 520.0
-margin_right = 388.0
-margin_bottom = 580.0
+margin_top = 525.0
+margin_right = 391.0
+margin_bottom = 588.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_v = true
+
+[node name="A37" type="TextureRect" parent="."]
+margin_left = 394.0
+margin_top = 202.0
+margin_right = 457.0
+margin_bottom = 265.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A37" type="ColorRect" parent="."]
-margin_left = 392.0
-margin_top = 200.0
-margin_right = 452.0
-margin_bottom = 260.0
+[node name="A38" type="TextureRect" parent="."]
+margin_left = 458.0
+margin_top = 202.0
+margin_right = 521.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A38" type="ColorRect" parent="."]
-margin_left = 456.0
-margin_top = 200.0
-margin_right = 516.0
-margin_bottom = 260.0
+[node name="A39" type="TextureRect" parent="."]
+margin_left = 522.0
+margin_top = 202.0
+margin_right = 585.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A39" type="ColorRect" parent="."]
-margin_left = 520.0
-margin_top = 200.0
-margin_right = 580.0
-margin_bottom = 260.0
+[node name="A40" type="TextureRect" parent="."]
+margin_left = 394.0
+margin_top = 329.0
+margin_right = 457.0
+margin_bottom = 392.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = -90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A40" type="ColorRect" parent="."]
-margin_left = 392.0
-margin_top = 264.0
-margin_right = 452.0
-margin_bottom = 324.0
+[node name="A41" type="TextureRect" parent="."]
+margin_left = 458.0
+margin_top = 266.0
+margin_right = 521.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A41" type="ColorRect" parent="."]
-margin_left = 456.0
-margin_top = 264.0
-margin_right = 516.0
-margin_bottom = 324.0
+[node name="A42" type="TextureRect" parent="."]
+margin_left = 585.0
+margin_top = 266.0
+margin_right = 648.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = 90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A42" type="ColorRect" parent="."]
-margin_left = 520.0
-margin_top = 264.0
-margin_right = 580.0
-margin_bottom = 324.0
+[node name="A43" type="TextureRect" parent="."]
+margin_left = 394.0
+margin_top = 330.0
+margin_right = 457.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A43" type="ColorRect" parent="."]
-margin_left = 392.0
-margin_top = 328.0
-margin_right = 452.0
-margin_bottom = 388.0
+[node name="A44" type="TextureRect" parent="."]
+margin_left = 458.0
+margin_top = 330.0
+margin_right = 521.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A44" type="ColorRect" parent="."]
-margin_left = 456.0
-margin_top = 328.0
-margin_right = 516.0
-margin_bottom = 388.0
+[node name="A45" type="TextureRect" parent="."]
+margin_left = 522.0
+margin_top = 330.0
+margin_right = 585.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A45" type="ColorRect" parent="."]
-margin_left = 520.0
-margin_top = 328.0
-margin_right = 580.0
-margin_bottom = 388.0
+[node name="A46" type="TextureRect" parent="."]
+margin_left = 588.0
+margin_top = 202.0
+margin_right = 651.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A46" type="ColorRect" parent="."]
-margin_left = 584.0
-margin_top = 200.0
-margin_right = 644.0
-margin_bottom = 260.0
+[node name="A47" type="TextureRect" parent="."]
+margin_left = 652.0
+margin_top = 202.0
+margin_right = 715.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A47" type="ColorRect" parent="."]
-margin_left = 648.0
-margin_top = 200.0
-margin_right = 708.0
-margin_bottom = 260.0
+[node name="A48" type="TextureRect" parent="."]
+margin_left = 716.0
+margin_top = 202.0
+margin_right = 779.0
+margin_bottom = 265.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A48" type="ColorRect" parent="."]
-margin_left = 712.0
-margin_top = 200.0
-margin_right = 772.0
-margin_bottom = 260.0
+[node name="A49" type="TextureRect" parent="."]
+margin_left = 588.0
+margin_top = 329.0
+margin_right = 651.0
+margin_bottom = 392.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = -90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A49" type="ColorRect" parent="."]
-margin_left = 584.0
-margin_top = 264.0
-margin_right = 644.0
-margin_bottom = 324.0
+[node name="A50" type="TextureRect" parent="."]
+margin_left = 652.0
+margin_top = 266.0
+margin_right = 715.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 2 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A50" type="ColorRect" parent="."]
-margin_left = 648.0
-margin_top = 264.0
-margin_right = 708.0
-margin_bottom = 324.0
+[node name="A51" type="TextureRect" parent="."]
+margin_left = 779.0
+margin_top = 266.0
+margin_right = 842.0
+margin_bottom = 329.0
 rect_min_size = Vector2( 60, 60 )
+rect_rotation = 90.0
+texture = ExtResource( 4 )
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A51" type="ColorRect" parent="."]
-margin_left = 712.0
-margin_top = 264.0
-margin_right = 772.0
-margin_bottom = 324.0
+[node name="A52" type="TextureRect" parent="."]
+margin_left = 588.0
+margin_top = 330.0
+margin_right = 651.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_h = true
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A52" type="ColorRect" parent="."]
-margin_left = 584.0
-margin_top = 328.0
-margin_right = 644.0
-margin_bottom = 388.0
+[node name="A53" type="TextureRect" parent="."]
+margin_left = 652.0
+margin_top = 330.0
+margin_right = 715.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 4 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="A53" type="ColorRect" parent="."]
-margin_left = 648.0
-margin_top = 328.0
-margin_right = 708.0
-margin_bottom = 388.0
+[node name="A54" type="TextureRect" parent="."]
+margin_left = 716.0
+margin_top = 330.0
+margin_right = 779.0
+margin_bottom = 393.0
 rect_min_size = Vector2( 60, 60 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="A54" type="ColorRect" parent="."]
-margin_left = 712.0
-margin_top = 328.0
-margin_right = 772.0
-margin_bottom = 388.0
-rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 3 )
+stretch_mode = 1
+flip_v = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -6,25 +6,25 @@ var ori_corners = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "
 var ori_edges = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
 		"R", "S", "T", "U", "V", "W", "X"]
 		
-var colors = {"A":Color(0.79, 0.83, 0, 1),"B":Color(0.79, 0.83, 0, 1),
-	"C":Color(0.79, 0.83, 0, 1),"D":Color(0.79, 0.83, 0, 1),
+var colors = {"A":Color(1, 1, 0, 1),"B":Color(1, 1, 0, 1),
+	"C":Color(1, 1, 0, 1),"D":Color(1, 1, 0, 1),
 	
-	"E":Color(0, 0, 0.8, 1),"F":Color(0, 0, 0.8, 1),
-	"G":Color(0, 0, 0.8, 1),"H":Color(0, 0, 0.8, 1),
+	"E":Color(0, 0, 1, 1),"F":Color(0, 0, 1, 1),
+	"G":Color(0, 0, 1, 1),"H":Color(0, 0, 1, 1),
 	
-	"I":Color(0.8, 0, 0, 1),"J":Color(0.8, 0, 0, 1),
-	"K":Color(0.8, 0, 0, 1),"L":Color(0.8, 0, 0, 1),
+	"I":Color(1, 0, 0, 1),"J":Color(1, 0, 0, 1),
+	"K":Color(1, 0, 0, 1),"L":Color(1, 0, 0, 1),
 	
-	"M":Color(0, 0.8, 0, 1),"N":Color(0, 0.8, 0, 1),
-	"O":Color(0, 0.8, 0, 1),"P":Color(0, 0.8, 0, 1),
+	"M":Color(0, 1, 0, 1),"N":Color(0, 1, 0, 1),
+	"O":Color(0, 1, 0, 1),"P":Color(0, 1, 0, 1),
 	
-	"Q":Color(0.8, 0.2, 0, 1),"R":Color(0.8, 0.2, 0, 1),
-	"S":Color(0.8, 0.2, 0, 1),"T":Color(0.8, 0.2, 0, 1),
+	"Q":Color(1, 0.667, 0, 1),"R":Color(1, 0.667, 0, 1),
+	"S":Color(1, 0.667, 0, 1),"T":Color(1, 0.667, 0, 1),
 	
 	"U":Color(1, 1, 1, 1),"V":Color(1, 1, 1, 1),
 	"W":Color(1, 1, 1, 1),"X":Color(1, 1, 1, 1),}
 
-		
+
 var centers
 var corners
 var edges
@@ -35,7 +35,7 @@ func _ready():
 	corners = ori_corners
 	edges = ori_edges
 	# Converst to Green front White top
-	move_z(0)
+	move_y(1)
 	update_img()
 	
 func update_img():
@@ -125,3 +125,41 @@ func move_z(n):
 				edges[3], edges[0], edges[1], edges[2],
 				edges[17], edges[18], edges[19], edges[16],
 				edges[15], edges[12], edges[13], edges[14]]
+
+func move_x(n):
+	for i in n:
+		centers = [centers[2], centers[1], centers[5], 
+				centers[3], centers[0], centers[4]]
+				
+		corners  = [corners[8], corners[9], corners[10], corners[11],
+				corners[5], corners[6], corners[7], corners[4],
+				corners[20], corners[21], corners[22], corners[23],
+				corners[15], corners[12], corners[13], corners[14],
+				corners[0], corners[1], corners[2], corners[3],
+				corners[18], corners[19], corners[16], corners[17]]
+				
+		edges  = [edges[8], edges[9], edges[10], edges[11],
+				edges[5], edges[6], edges[7], edges[4],
+				edges[20], edges[21], edges[22], edges[23],
+				edges[15], edges[12], edges[13], edges[14],
+				edges[2], edges[3], edges[0], edges[1],
+				edges[18], edges[19], edges[16], edges[17]]
+				
+func move_y(n):
+	for i in n:
+		centers = [centers[0], centers[2], centers[3], 
+				centers[4], centers[1], centers[5]]
+				
+		corners  = [corners[3], corners[0], corners[1], corners[2],
+				corners[8], corners[9], corners[10], corners[11],
+				corners[12], corners[13], corners[14], corners[15],
+				corners[16], corners[17], corners[18], corners[19],
+				corners[4], corners[5], corners[6], corners[7],
+				corners[21], corners[22], corners[23], corners[20]]
+				
+		edges  = [edges[3], edges[0], edges[1], edges[2],
+				edges[8], edges[9], edges[10], edges[11],
+				edges[12], edges[13], edges[14], edges[15],
+				edges[16], edges[17], edges[18], edges[19],
+				edges[4], edges[5], edges[6], edges[7],
+				edges[21], edges[22], edges[23], edges[20]]
