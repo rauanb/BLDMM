@@ -34,9 +34,26 @@ func _ready():
 	centers = ori_centers
 	corners = ori_corners
 	edges = ori_edges
-	# Converst to Green front White top
-	move_y(1)
+	$scrambleText.set_placeholder("Scramble") 
+	
+	move_z(2)
+	move_y(3)
 	update_img()
+	
+func _process(delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().quit()
+	if Input.is_action_just_pressed("ui_accept"):
+		read_scramble()
+		update_img()
+		
+func read_scramble():
+	var scramble = $scrambleText.get_text()
+	$scrambleText.text = ""
+	print(scramble)
+	
+func make_moves():
+	pass
 	
 func update_img():
 #	Front
@@ -104,9 +121,7 @@ func update_img():
 	$A52.set_modulate(colors[corners[19]])
 	$A53.set_modulate(colors[edges[18]])
 	$A54.set_modulate(colors[corners[18]])
-	
-	
-	
+
 func move_z(n):
 	for i in n:
 		centers = [centers[1], centers[5], centers[2], 
@@ -144,7 +159,7 @@ func move_x(n):
 				edges[15], edges[12], edges[13], edges[14],
 				edges[2], edges[3], edges[0], edges[1],
 				edges[18], edges[19], edges[16], edges[17]]
-				
+
 func move_y(n):
 	for i in n:
 		centers = [centers[0], centers[2], centers[3], 
@@ -163,3 +178,117 @@ func move_y(n):
 				edges[16], edges[17], edges[18], edges[19],
 				edges[4], edges[5], edges[6], edges[7],
 				edges[21], edges[22], edges[23], edges[20]]
+
+func move_r(n):
+	for i in n:
+		corners  = [corners[0], corners[9], corners[10], corners[3],
+				corners[4], corners[5], corners[6], corners[7],
+				corners[8], corners[21], corners[22], corners[11],
+				corners[15], corners[12], corners[13], corners[14],
+				corners[2], corners[17], corners[18], corners[1],
+				corners[20], corners[19], corners[16], corners[23]]
+				
+		edges  = [edges[0], edges[9], edges[2], edges[3],
+				edges[4], edges[5], edges[6], edges[7],
+				edges[8], edges[21], edges[10], edges[11],
+				edges[15], edges[12], edges[13], edges[14],
+				edges[16], edges[17], edges[18], edges[1],
+				edges[20], edges[19], edges[22], edges[23]]
+
+func move_u(n):
+	for i in n:
+		corners  = [corners[3], corners[0], corners[1], corners[2],
+					corners[8], corners[9], corners[6], corners[7],
+					corners[12], corners[13], corners[10], corners[11],
+					corners[16], corners[17], corners[14], corners[15],
+					corners[4], corners[5], corners[18], corners[19],
+					corners[20], corners[21], corners[22], corners[23]]
+					
+		edges  = [edges[3], edges[0], edges[1], edges[2],
+					edges[8], edges[5], edges[6], edges[7],
+					edges[12], edges[9], edges[10], edges[11],
+					edges[16], edges[13], edges[14], edges[15],
+					edges[4], edges[17], edges[18], edges[19],
+					edges[20], edges[21], edges[22], edges[23]]
+
+func move_f(n):
+	for i in n:
+		corners  = [corners[0], corners[1], corners[5], corners[6],
+					corners[4], corners[20], corners[21], corners[7],
+					corners[11], corners[8], corners[9], corners[10],
+					corners[3], corners[13], corners[14], corners[2],
+					corners[16], corners[17], corners[18], corners[19],
+					corners[15], corners[12], corners[22], corners[23]]
+					
+		edges  = [edges[0], edges[1], edges[5], edges[3],
+					edges[4], edges[20], edges[6], edges[7],
+					edges[11], edges[8], edges[9], edges[10],
+					edges[12], edges[13], edges[14], edges[2],
+					edges[16], edges[17], edges[18], edges[19],
+					edges[15], edges[21], edges[22], edges[23]]
+
+func move_l(n):
+	for i in n:
+		corners  = [corners[18], corners[1], corners[2], corners[17],
+					corners[7], corners[4], corners[5], corners[6],
+					corners[0], corners[9], corners[10], corners[3],
+					corners[12], corners[13], corners[14], corners[15],
+					corners[16], corners[23], corners[20], corners[19],
+					corners[8], corners[21], corners[22], corners[11]]
+					
+		edges  = [edges[0], edges[1], edges[2], edges[17],
+					edges[7], edges[4], edges[5], edges[6],
+					edges[8], edges[9], edges[10], edges[3],
+					edges[12], edges[13], edges[14], edges[15],
+					edges[16], edges[23], edges[18], edges[19],
+					edges[20], edges[21], edges[22], edges[11]]
+	
+func move_d(n):
+	for i in n:
+		corners  = [corners[0], corners[1], corners[2], corners[3],
+					corners[4], corners[5], corners[18], corners[19],
+					corners[8], corners[9], corners[6], corners[7],
+					corners[12], corners[13], corners[10], corners[11],
+					corners[16], corners[17], corners[14], corners[15],
+					corners[23], corners[20], corners[21], corners[22]]
+					
+		edges  = [edges[0], edges[1], edges[2], edges[3],
+					edges[4], edges[5], edges[18], edges[7],
+					edges[8], edges[9], edges[6], edges[11],
+					edges[12], edges[13], edges[10], edges[15],
+					edges[16], edges[17], edges[14], edges[19],
+					edges[23], edges[20], edges[21], edges[22]]
+	
+func move_b(n):
+	for i in n:
+		corners  = [corners[13], corners[14], corners[2], corners[3],
+					corners[1], corners[5], corners[6], corners[0],
+					corners[8], corners[9], corners[10], corners[11],
+					corners[12], corners[22], corners[23], corners[15],
+					corners[19], corners[16], corners[17], corners[18],
+					corners[20], corners[21], corners[7], corners[4]]
+					
+		edges  = [edges[13], edges[1], edges[2], edges[3],
+					edges[4], edges[5], edges[6], edges[0],
+					edges[8], edges[9], edges[10], edges[11],
+					edges[12], edges[22], edges[14], edges[15],
+					edges[19], edges[16], edges[17], edges[18],
+					edges[20], edges[21], edges[7], edges[23]]
+
+func move_m(n):
+	for i in n:
+		move_x(3)
+		move_r(1)
+		move_l(3)
+				
+func move_s(n):
+	for i in n:
+		move_z(1)
+		move_f(3)
+		move_b(1)
+				
+func move_e(n):
+	for i in n:
+		move_y(3)
+		move_u(1)
+		move_d(3)
