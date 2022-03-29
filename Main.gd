@@ -35,7 +35,7 @@ func _ready():
 	corners = ori_corners
 	edges = ori_edges
 	$scrambleText.set_placeholder("Scramble") 
-	
+
 	move_z(2)
 	move_y(3)
 	update_img()
@@ -46,249 +46,392 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		read_scramble()
 		update_img()
+		get_orientation()
+		
+func get_orientation():
+	var count = 0
+	while centers[0] != "A":
+		move_z(1)
+		count += 1
+		
+		if count == 4:
+			count = 4
+			move_y(1) 
+	while centers[1] != "E":
+		move_y(1)
+	
 		
 func read_scramble():
-	var scramble = $scrambleText.get_text()
+	var scrambleText = $scrambleText.get_text()
 	$scrambleText.text = ""
-	print(scramble)
-	
-func make_moves():
-	pass
+	var moves = scrambleText.split(" ")
+	for i in moves.size():
+		if moves[i] == "D":
+			move_d(1)
+		elif moves[i] == "d" or moves[i] == "Dw":
+			move_d(1)
+			move_e(1)
+		elif moves[i] == "D2":
+			move_d(2)
+		elif moves[i] == "d2" or moves[i] == "Dw2":
+			move_d(2)
+			move_e(2)
+		elif moves[i] == "D'":
+			move_d(3)
+		elif moves[i] == "d'" or moves[i] == "Dw'":
+			move_d(3)
+			move_e(3)
+		elif moves[i] == "R":
+			move_r(1)
+		elif moves[i] == "r" or moves[i] == "Rw":
+			move_r(1)
+			move_m(3)
+		elif moves[i] == "R2":
+			move_r(2)
+		elif moves[i] == "r2" or moves[i] == "Rw2":
+			move_r(2)
+			move_m(2)
+		elif moves[i] == "R'":
+			move_r(3)
+		elif moves[i] == "r'" or moves[i] == "Rw'":
+			move_r(3)
+			move_m(1)
+		elif moves[i] == "U":
+			move_u(1)
+		elif moves[i] == "u" or moves[i] == "Uw":
+			move_u(1)
+			move_e(3)
+		elif moves[i] == "U2":
+			move_u(2)
+		elif moves[i] == "u2" or moves[i] == "Uw2":
+			move_u(2)
+			move_e(2)
+		elif moves[i] == "U'":
+			move_u(3)
+		elif moves[i] == "u'" or moves[i] == "Uw'":
+			move_u(3)
+			move_e(1)
+		elif moves[i] == "F":
+			move_f(1)
+		elif moves[i] == "f" or moves[i] == "Fw":
+			move_f(1)
+			move_s(1)
+		elif moves[i] == "F2":
+			move_f(2)
+		elif moves[i] == "f2" or moves[i] == "Fw2":
+			move_f(2)
+			move_s(2)
+		elif moves[i] == "F'":
+			move_f(3)
+		elif moves[i] == "f'" or moves[i] == "Fw'":
+			move_f(3)
+			move_s(3)
+		elif moves[i] == "B":
+			move_b(1)
+		elif moves[i] == "b" or moves[i] == "Bw":
+			move_b(1)
+			move_s(3)
+		elif moves[i] == "B2":
+			move_b(2)
+		elif moves[i] == "b2" or moves[i] == "Bw2":
+			move_b(2)
+			move_s(2)
+		elif moves[i] == "B'":
+			move_b(3)
+		elif moves[i] == "b'" or moves[i] == "Bw'":
+			move_b(3)
+			move_s(1)
+		elif moves[i] == "L":
+			move_l(1)
+		elif moves[i] == "l" or moves[i] == "Lw":
+			move_l(1)
+			move_m(1)
+		elif moves[i] == "L2":
+			move_l(2)
+		elif moves[i] == "l2" or moves[i] == "Lw2":
+			move_l(2)
+			move_m(2)
+		elif moves[i] == "L'":
+			move_l(3)
+		elif moves[i] == "l'" or moves[i] == "Lw'":
+			move_l(3)
+			move_m(3)
+		elif moves[i] == "x" or moves[i] == "X":
+			move_x(1)
+		elif moves[i] == "x2" or moves[i] == "X2":
+			move_x(2)
+		elif moves[i] == "x'" or moves[i] == "X'":
+			move_x(3)
+		elif moves[i] == "y" or moves[i] == "Y":
+			move_y(1)
+		elif moves[i] == "y2" or moves[i] == "Y2":
+			move_y(2)
+		elif moves[i] == "y'" or moves[i] == "Y'":
+			move_y(3)
+		elif moves[i] == "z" or moves[i] == "Z":
+			move_z(1)
+		elif moves[i] == "z2" or moves[i] == "Z2":
+			move_z(2)
+		elif moves[i] == "z'" or moves[i] == "Z'":
+			move_z(3)
+
 	
 func update_img():
-#	Front
-	$A10.set_modulate(colors[corners[8]])
-	$A11.set_modulate(colors[edges[8]])
-	$A12.set_modulate(colors[corners[9]])
-	$A13.set_modulate(colors[edges[11]])
-	$A14.set_modulate(colors[centers[2]])
-	$A15.set_modulate(colors[edges[9]])
-	$A16.set_modulate(colors[corners[11]])
-	$A17.set_modulate(colors[edges[10]])
-	$A18.set_modulate(colors[corners[10]])
-	
-#	Up
-	$A1.set_modulate(colors[corners[0]])
-	$A2.set_modulate(colors[edges[0]])
-	$A3.set_modulate(colors[corners[1]])
-	$A4.set_modulate(colors[edges[3]])
-	$A5.set_modulate(colors[centers[0]])
-	$A6.set_modulate(colors[edges[1]])
-	$A7.set_modulate(colors[corners[3]])
-	$A8.set_modulate(colors[edges[2]])
-	$A9.set_modulate(colors[corners[2]])
-	
-#	Left
-	$A19.set_modulate(colors[corners[4]])
-	$A20.set_modulate(colors[edges[4]])
-	$A21.set_modulate(colors[corners[5]])
-	$A22.set_modulate(colors[edges[7]])
-	$A23.set_modulate(colors[centers[1]])
-	$A24.set_modulate(colors[edges[5]])
-	$A25.set_modulate(colors[corners[7]])
-	$A26.set_modulate(colors[edges[6]])
-	$A27.set_modulate(colors[corners[6]])
-	
-#	Down
-	$A28.set_modulate(colors[corners[20]])
-	$A29.set_modulate(colors[edges[20]])
-	$A30.set_modulate(colors[corners[21]])
-	$A31.set_modulate(colors[edges[23]])
-	$A32.set_modulate(colors[centers[5]])
-	$A33.set_modulate(colors[edges[21]])
-	$A34.set_modulate(colors[corners[23]])
-	$A35.set_modulate(colors[edges[22]])
-	$A36.set_modulate(colors[corners[22]])
-	
-#	Right
-	$A37.set_modulate(colors[corners[12]])
-	$A38.set_modulate(colors[edges[12]])
-	$A39.set_modulate(colors[corners[13]])
-	$A40.set_modulate(colors[edges[15]])
-	$A41.set_modulate(colors[centers[3]])
-	$A42.set_modulate(colors[edges[13]])
-	$A43.set_modulate(colors[corners[15]])
-	$A44.set_modulate(colors[edges[14]])
-	$A45.set_modulate(colors[corners[14]])
-	
-#	Back
-	$A46.set_modulate(colors[corners[16]])
-	$A47.set_modulate(colors[edges[16]])
-	$A48.set_modulate(colors[corners[17]])
-	$A49.set_modulate(colors[edges[19]])
-	$A50.set_modulate(colors[centers[4]])
-	$A51.set_modulate(colors[edges[17]])
-	$A52.set_modulate(colors[corners[19]])
-	$A53.set_modulate(colors[edges[18]])
-	$A54.set_modulate(colors[corners[18]])
+	for i in centers.size():
+		get_node("C"+str(i)).set_modulate(colors[centers[i]])
+	for i in corners.size():
+		get_node("Co"+str(i)).set_modulate(colors[corners[i]])
+	for i in edges.size():
+		get_node("E"+str(i)).set_modulate(colors[edges[i]])
 
 func move_z(n):
+	var new_centers
+	var new_corners
+	var new_edges
+	
 	for i in n:
-		centers = [centers[1], centers[5], centers[2], 
+		new_centers = [centers[1], centers[5], centers[2], 
 				centers[0], centers[4], centers[3]]
 				
-		corners  = [corners[7], corners[4], corners[5], corners[6],
+		new_corners  = [corners[7], corners[4], corners[5], corners[6],
 				corners[23], corners[20], corners[21], corners[22],
 				corners[11], corners[8], corners[9], corners[10],
 				corners[3], corners[0], corners[1], corners[2],
 				corners[17], corners[18], corners[19], corners[16],
 				corners[15], corners[12], corners[13], corners[14]]
 				
-		edges  = [edges[7], edges[4], edges[5], edges[6],
+		new_edges  = [edges[7], edges[4], edges[5], edges[6],
 				edges[23], edges[20], edges[21], edges[22],
 				edges[11], edges[8], edges[9], edges[10],
 				edges[3], edges[0], edges[1], edges[2],
 				edges[17], edges[18], edges[19], edges[16],
 				edges[15], edges[12], edges[13], edges[14]]
+				
+		centers = new_centers
+		corners = new_corners
+		edges = new_edges
+	update_img()
 
 func move_x(n):
+	var new_centers
+	var new_corners
+	var new_edges
 	for i in n:
-		centers = [centers[2], centers[1], centers[5], 
+		new_centers = [centers[2], centers[1], centers[5], 
 				centers[3], centers[0], centers[4]]
 				
-		corners  = [corners[8], corners[9], corners[10], corners[11],
+		new_corners  = [corners[8], corners[9], corners[10], corners[11],
 				corners[5], corners[6], corners[7], corners[4],
 				corners[20], corners[21], corners[22], corners[23],
 				corners[15], corners[12], corners[13], corners[14],
 				corners[0], corners[1], corners[2], corners[3],
 				corners[18], corners[19], corners[16], corners[17]]
 				
-		edges  = [edges[8], edges[9], edges[10], edges[11],
+		new_edges  = [edges[8], edges[9], edges[10], edges[11],
 				edges[5], edges[6], edges[7], edges[4],
 				edges[20], edges[21], edges[22], edges[23],
 				edges[15], edges[12], edges[13], edges[14],
 				edges[2], edges[3], edges[0], edges[1],
 				edges[18], edges[19], edges[16], edges[17]]
+		centers = new_centers
+		corners = new_corners
+		edges = new_edges
+	update_img()
 
 func move_y(n):
+	var new_centers
+	var new_corners
+	var new_edges
 	for i in n:
-		centers = [centers[0], centers[2], centers[3], 
+		new_centers = [centers[0], centers[2], centers[3], 
 				centers[4], centers[1], centers[5]]
 				
-		corners  = [corners[3], corners[0], corners[1], corners[2],
+		new_corners  = [corners[3], corners[0], corners[1], corners[2],
 				corners[8], corners[9], corners[10], corners[11],
 				corners[12], corners[13], corners[14], corners[15],
 				corners[16], corners[17], corners[18], corners[19],
 				corners[4], corners[5], corners[6], corners[7],
 				corners[21], corners[22], corners[23], corners[20]]
 				
-		edges  = [edges[3], edges[0], edges[1], edges[2],
+		new_edges  = [edges[3], edges[0], edges[1], edges[2],
 				edges[8], edges[9], edges[10], edges[11],
 				edges[12], edges[13], edges[14], edges[15],
 				edges[16], edges[17], edges[18], edges[19],
 				edges[4], edges[5], edges[6], edges[7],
 				edges[21], edges[22], edges[23], edges[20]]
+		centers = new_centers
+		corners = new_corners
+		edges = new_edges
+	update_img()
 
 func move_r(n):
+	var new_corners
+	var new_edges
 	for i in n:
-		corners  = [corners[0], corners[9], corners[10], corners[3],
+		new_corners  = [corners[0], corners[9], corners[10], corners[3],
 				corners[4], corners[5], corners[6], corners[7],
 				corners[8], corners[21], corners[22], corners[11],
 				corners[15], corners[12], corners[13], corners[14],
 				corners[2], corners[17], corners[18], corners[1],
 				corners[20], corners[19], corners[16], corners[23]]
 				
-		edges  = [edges[0], edges[9], edges[2], edges[3],
+		new_edges  = [edges[0], edges[9], edges[2], edges[3],
 				edges[4], edges[5], edges[6], edges[7],
 				edges[8], edges[21], edges[10], edges[11],
 				edges[15], edges[12], edges[13], edges[14],
 				edges[16], edges[17], edges[18], edges[1],
 				edges[20], edges[19], edges[22], edges[23]]
+		corners = new_corners
+		edges = new_edges
+	update_img()
 
 func move_u(n):
+	var new_corners
+	var new_edges
 	for i in n:
-		corners  = [corners[3], corners[0], corners[1], corners[2],
+		new_corners  = [corners[3], corners[0], corners[1], corners[2],
 					corners[8], corners[9], corners[6], corners[7],
 					corners[12], corners[13], corners[10], corners[11],
 					corners[16], corners[17], corners[14], corners[15],
 					corners[4], corners[5], corners[18], corners[19],
 					corners[20], corners[21], corners[22], corners[23]]
 					
-		edges  = [edges[3], edges[0], edges[1], edges[2],
+		new_edges  = [edges[3], edges[0], edges[1], edges[2],
 					edges[8], edges[5], edges[6], edges[7],
 					edges[12], edges[9], edges[10], edges[11],
 					edges[16], edges[13], edges[14], edges[15],
 					edges[4], edges[17], edges[18], edges[19],
 					edges[20], edges[21], edges[22], edges[23]]
 
+		corners = new_corners
+		edges = new_edges
+	update_img()
+
 func move_f(n):
+	var new_corners
+	var new_edges
 	for i in n:
-		corners  = [corners[0], corners[1], corners[5], corners[6],
+		new_corners  = [corners[0], corners[1], corners[5], corners[6],
 					corners[4], corners[20], corners[21], corners[7],
 					corners[11], corners[8], corners[9], corners[10],
 					corners[3], corners[13], corners[14], corners[2],
 					corners[16], corners[17], corners[18], corners[19],
 					corners[15], corners[12], corners[22], corners[23]]
 					
-		edges  = [edges[0], edges[1], edges[5], edges[3],
+		new_edges  = [edges[0], edges[1], edges[5], edges[3],
 					edges[4], edges[20], edges[6], edges[7],
 					edges[11], edges[8], edges[9], edges[10],
 					edges[12], edges[13], edges[14], edges[2],
 					edges[16], edges[17], edges[18], edges[19],
 					edges[15], edges[21], edges[22], edges[23]]
 
+		corners = new_corners
+		edges = new_edges
+	update_img()
+
 func move_l(n):
+	var new_corners
+	var new_edges
 	for i in n:
-		corners  = [corners[18], corners[1], corners[2], corners[17],
+		new_corners  = [corners[18], corners[1], corners[2], corners[17],
 					corners[7], corners[4], corners[5], corners[6],
 					corners[0], corners[9], corners[10], corners[3],
 					corners[12], corners[13], corners[14], corners[15],
 					corners[16], corners[23], corners[20], corners[19],
 					corners[8], corners[21], corners[22], corners[11]]
 					
-		edges  = [edges[0], edges[1], edges[2], edges[17],
+		new_edges  = [edges[0], edges[1], edges[2], edges[17],
 					edges[7], edges[4], edges[5], edges[6],
 					edges[8], edges[9], edges[10], edges[3],
 					edges[12], edges[13], edges[14], edges[15],
 					edges[16], edges[23], edges[18], edges[19],
 					edges[20], edges[21], edges[22], edges[11]]
+
+		corners = new_corners
+		edges = new_edges
+	update_img()
 	
 func move_d(n):
+	var new_corners
+	var new_edges
 	for i in n:
-		corners  = [corners[0], corners[1], corners[2], corners[3],
+		new_corners  = [corners[0], corners[1], corners[2], corners[3],
 					corners[4], corners[5], corners[18], corners[19],
 					corners[8], corners[9], corners[6], corners[7],
 					corners[12], corners[13], corners[10], corners[11],
 					corners[16], corners[17], corners[14], corners[15],
 					corners[23], corners[20], corners[21], corners[22]]
 					
-		edges  = [edges[0], edges[1], edges[2], edges[3],
+		new_edges  = [edges[0], edges[1], edges[2], edges[3],
 					edges[4], edges[5], edges[18], edges[7],
 					edges[8], edges[9], edges[6], edges[11],
 					edges[12], edges[13], edges[10], edges[15],
 					edges[16], edges[17], edges[14], edges[19],
 					edges[23], edges[20], edges[21], edges[22]]
+
+		corners = new_corners
+		edges = new_edges
+	update_img()
 	
 func move_b(n):
+	var new_corners
+	var new_edges
 	for i in n:
-		corners  = [corners[13], corners[14], corners[2], corners[3],
+		new_corners  = [corners[13], corners[14], corners[2], corners[3],
 					corners[1], corners[5], corners[6], corners[0],
 					corners[8], corners[9], corners[10], corners[11],
 					corners[12], corners[22], corners[23], corners[15],
 					corners[19], corners[16], corners[17], corners[18],
 					corners[20], corners[21], corners[7], corners[4]]
 					
-		edges  = [edges[13], edges[1], edges[2], edges[3],
+		new_edges  = [edges[13], edges[1], edges[2], edges[3],
 					edges[4], edges[5], edges[6], edges[0],
 					edges[8], edges[9], edges[10], edges[11],
 					edges[12], edges[22], edges[14], edges[15],
 					edges[19], edges[16], edges[17], edges[18],
 					edges[20], edges[21], edges[7], edges[23]]
 
+		corners = new_corners
+		edges = new_edges
+	update_img()
+
 func move_m(n):
+	var new_centers
+	var new_edges
 	for i in n:
-		move_x(3)
-		move_r(1)
-		move_l(3)
+#		move_r(1)
+#		move_l(3)
+#		move_x(3)
+		new_centers = [centers[4], centers[1], centers[0], 
+				centers[3], centers[5], centers[2]]
 				
+		new_edges  = [edges[18], edges[1], edges[16], edges[3],
+				edges[4], edges[5], edges[6], edges[7],
+				edges[0], edges[9], edges[2], edges[11],
+				edges[12], edges[13], edges[14], edges[15],
+				edges[22], edges[17], edges[20], edges[19],
+				edges[8], edges[21], edges[10], edges[23]]
+				
+		centers = new_centers
+		edges = new_edges
+	update_img()
+
 func move_s(n):
 	for i in n:
-		move_z(1)
 		move_f(3)
 		move_b(1)
-				
+		move_z(1)
+
 func move_e(n):
 	for i in n:
-		move_y(3)
 		move_u(1)
 		move_d(3)
+		move_y(3)
+
+func _on_SolveButton_button_up():
+	centers = ori_centers
+	corners = ori_corners
+	edges = ori_edges
+	move_z(2)
+	move_y(3)
+	update_img()
